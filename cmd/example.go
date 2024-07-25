@@ -7,4 +7,5 @@ import (
 
 func main() {
 	fmt.Println(http.Run(3))
+	fmt.Println(http.PreparePath("/v1/hea/:document/collection"))
 }

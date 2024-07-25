@@ -8,12 +8,12 @@ type AllOf struct {
 	xType      string
 }
 
-func NewAllOf(validators []http.Validator, xType string) (validator AllOf) {
-	if xType == "" {
-		xType = http.TypeMixed
-	}
+func NewDefaultAllOf() *AllOf {
+	return NewAllOf(make([]http.Validator, 0), http.TypeMixed)
+}
 
-	return
+func NewAllOf(validators []http.Validator, xType string) *AllOf {
+	return &AllOf{validators: validators, xType: xType}
 }
 
 func (bv *AllOf) GetDescription() string {
